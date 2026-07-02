@@ -1,717 +1,308 @@
 /* ===========================
    Happy Birthday Bangaram
-   Cute Aesthetic Theme
+   Clean Aesthetic Theme ✨
 =========================== */
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-scroll-behavior:smooth;
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
-body{
-font-family:'Poppins',sans-serif;
-background:linear-gradient(135deg,#ffd6e7,#ffeef6,#f9e7ff);
-overflow-x:hidden;
-color:#444;
-}
-
-/* Floating Hearts Background */
-
-.hearts{
-position:fixed;
-width:100%;
-height:100%;
-top:0;
-left:0;
-pointer-events:none;
-z-index:-1;
-overflow:hidden;
-}
-
-.hearts::before{
-content:"💖 💕 🌸 ✨ 💖 💕";
-position:absolute;
-font-size:28px;
-width:100%;
-animation:floatHearts 18s linear infinite;
-opacity:.25;
-}
-
-@keyframes floatHearts{
-
-0%{
-transform:translateY(100vh);
-}
-
-100%{
-transform:translateY(-120vh);
-}
-
-}
-
-/* Hero Section */
-
-.hero{
-
-height:100vh;
-
-display:flex;
-
-flex-direction:column;
-
-justify-content:center;
-
-align-items:center;
-
-text-align:center;
-
-padding:20px;
-
-}
-
-.hero h3{
-
-font-size:20px;
-
-color:#ff6aa5;
-
-margin-bottom:10px;
-
-}
-
-.hero h1{
-
-font-size:65px;
-
-font-family:'Great Vibes',cursive;
-
-color:#ff4d88;
-
-}
-
-.hero h2{
-
-font-size:42px;
-
-margin-top:10px;
-
-color:#ff80aa;
-
-}
-
-.hero p{
-
-max-width:700px;
-
-margin-top:25px;
-
-font-size:19px;
-
-line-height:1.8;
-
-}
-
-/* Button */
-
-button{
-
-padding:15px 40px;
-
-border:none;
-
-border-radius:50px;
-
-background:#ff5e95;
-
-color:white;
-
-font-size:18px;
-
-margin-top:35px;
-
-cursor:pointer;
-
-transition:.4s;
-
-box-shadow:0 10px 25px rgba(255,0,120,.25);
-
-}
-
-button:hover{
-
-transform:translateY(-5px);
-
-background:#ff2d75;
-
-}
-
-/* Gallery */
-
-#gallery{
-
-padding:90px 20px;
-
-}
-
-.title{
-
-text-align:center;
-
-font-size:45px;
-
-color:#ff5e95;
-
-margin-bottom:50px;
-
-font-family:'Great Vibes',cursive;
-
-}
-
-.slider{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-
-gap:25px;
-
-max-width:1200px;
-
-margin:auto;
-
-}
-
-.slider img{
-
-width:100%;
-
-height:320px;
-
-object-fit:cover;
-
-border-radius:25px;
-
-box-shadow:0 10px 25px rgba(0,0,0,.15);
-
-transition:.4s;
-
-}
-
-.slider img:hover{
-
-transform:scale(1.05);
-
-}
-/* ===========================
-   LETTER SECTION
-=========================== */
-
-.letter{
-padding:90px 25px;
-text-align:center;
-background:white;
-margin:50px;
-border-radius:30px;
-box-shadow:0 15px 35px rgba(0,0,0,.08);
-}
-
-.letter h2{
-font-size:42px;
-color:#ff4d88;
-margin-bottom:30px;
-font-family:'Great Vibes',cursive;
-}
-
-.letter p{
-max-width:900px;
-margin:auto;
-line-height:2;
-font-size:18px;
-color:#666;
+html, body {
+    overflow-x: hidden;
+    font-family: 'Poppins', sans-serif;
 }
 
 /* ===========================
-   GIFT SECTION
+   BACKGROUND
 =========================== */
 
-.gift{
-padding:100px 20px;
-text-align:center;
+body {
+    background: linear-gradient(135deg, #ffd6e7, #ffeef6, #f9e7ff);
+    color: #444;
 }
 
-.gift h2{
-font-size:42px;
-color:#ff4d88;
-font-family:'Great Vibes',cursive;
-margin-bottom:30px;
+/* ===========================
+   FLOATING BACKGROUNDS LAYERS
+=========================== */
+
+.hearts,
+.flowers,
+.stars {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
 }
 
-#message{
-display:none;
-margin-top:40px;
-font-size:28px;
-color:#ff4d88;
-font-weight:bold;
-animation:popup .8s ease;
+/* Hearts background layer */
+.hearts {
+    z-index: -3;
 }
 
-@keyframes popup{
-
-0%{
-transform:scale(.4);
-opacity:0;
+/* Flowers layer */
+.flowers {
+    z-index: -2;
 }
 
-100%{
-transform:scale(1);
-opacity:1;
+/* Stars layer */
+.stars {
+    z-index: -4;
 }
 
+/* ===========================
+   FLOATING HEART (JS CREATED)
+=========================== */
+
+.heart {
+    position: absolute;
+    bottom: -40px;
+    font-size: 22px;
+    animation: floatHeart linear infinite;
+    opacity: 0.8;
+}
+
+@keyframes floatHeart {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* ===========================
+   FLOWERS
+=========================== */
+
+.flower {
+    position: absolute;
+    top: -50px;
+    font-size: 20px;
+    animation: fallFlower linear infinite;
+    opacity: 0.8;
+}
+
+@keyframes fallFlower {
+    0% {
+        transform: translateY(-50px) rotate(0deg);
+    }
+    100% {
+        transform: translateY(110vh) rotate(360deg);
+    }
+}
+
+/* ===========================
+   STARS
+=========================== */
+
+.star {
+    position: absolute;
+    color: white;
+    font-size: 12px;
+    animation: twinkle linear infinite;
+    opacity: 0.7;
+}
+
+@keyframes twinkle {
+    0% { opacity: 0; transform: scale(0.5); }
+    50% { opacity: 1; transform: scale(1.3); }
+    100% { opacity: 0; transform: scale(0.5); }
+}
+
+/* ===========================
+   HERO SECTION
+=========================== */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px;
+    margin: 30px;
+    border-radius: 30px;
+
+    background: rgba(255,255,255,0.25);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,.3);
+    box-shadow: 0 8px 32px rgba(255,105,180,.2);
+}
+
+.hero h1 {
+    font-size: 65px;
+    font-family: 'Great Vibes', cursive;
+    color: #ff4d88;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+.hero h2 {
+    font-size: 42px;
+    color: #ff80aa;
+}
+
+.hero h3 {
+    font-size: 20px;
+    color: #ff6aa5;
+}
+
+/* glow */
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px #ff69b4, 0 0 20px #ff69b4;
+    }
+    to {
+        text-shadow: 0 0 20px white, 0 0 35px hotpink, 0 0 50px deeppink;
+    }
+}
+
+/* ===========================
+   BUTTON
+=========================== */
+
+button {
+    padding: 15px 40px;
+    border: none;
+    border-radius: 50px;
+    background: #ff5e95;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 30px;
+    transition: 0.3s ease;
+    box-shadow: 0 10px 25px rgba(255,0,120,.25);
+}
+
+button:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 25px hotpink;
+    background: #ff2d75;
+}
+
+/* ===========================
+   SLIDESHOW
+=========================== */
+
+.slideshow {
+    width: 320px;
+    height: 430px;
+    margin: auto;
+    position: relative;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 25px;
+    opacity: 0;
+    transition: opacity 1.5s ease;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+/* ===========================
+   LETTER
+=========================== */
+
+.letter,
+.ending,
+.gift {
+    margin: 30px;
+    padding: 40px;
+    border-radius: 30px;
+
+    background: rgba(255,255,255,0.25);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 32px rgba(255,105,180,.2);
+}
+
+.letter h2,
+.ending h2,
+.gift h2 {
+    color: #ff4d88;
+    font-family: 'Great Vibes', cursive;
+}
+
+/* ===========================
+   MESSAGE
+=========================== */
+
+#message {
+    display: none;
+    margin-top: 40px;
+    font-size: 28px;
+    color: #ff4d88;
+    font-weight: bold;
+    animation: popup 0.8s ease;
+}
+
+@keyframes popup {
+    from { transform: scale(0.4); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* ===========================
+   COUNTDOWN
+=========================== */
+
+#countdown {
+    margin-top: 15px;
+    font-size: 22px;
+    color: #ff4d88;
+    font-weight: bold;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+    100% { transform: scale(1); }
+}
+
+/* ===========================
+   POPUP
+=========================== */
+
+.popup {
+    position: fixed;
+    inset: 0;
+    background: rgba(255,192,203,.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.popup-box {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 320px;
 }
 
 /* ===========================
    FOOTER
 =========================== */
 
-footer{
-padding:30px;
-text-align:center;
-background:#ffb6d2;
-color:white;
-font-size:18px;
-margin-top:50px;
-}
-
-/* ===========================
-   RESPONSIVE
-=========================== */
-
-@media(max-width:768px){
-
-.hero h1{
-font-size:50px;
-}
-
-.hero h2{
-font-size:32px;
-}
-
-.hero p{
-font-size:17px;
-}
-
-.title{
-font-size:35px;
-}
-
-.letter{
-margin:20px;
-padding:50px 20px;
-}
-
-.letter h2{
-font-size:34px;
-}
-
-.letter p{
-font-size:16px;
-line-height:1.8;
-}
-
-.slider img{
-height:250px;
-}
-
-button{
-padding:14px 30px;
-font-size:16px;
-}
-
-#message{
-font-size:22px;
-}
-
-}
-/* Photo Slideshow */
-
-.slideshow{
-width:320px;
-height:430px;
-margin:auto;
-position:relative;
-}
-
-.slide{
-position:absolute;
-width:100%;
-height:100%;
-object-fit:cover;
-border-radius:25px;
-opacity:0;
-transition:opacity 1.5s ease;
-box-shadow:0 15px 30px rgba(0,0,0,.2);
-}
-
-.slide.active{
-opacity:1;
-}
-/* Floating Hearts */
-
-.hearts{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-pointer-events:none;
-overflow:hidden;
-z-index:-1;
-}
-
-.heart{
-position:absolute;
-bottom:-40px;
-font-size:22px;
-animation:floatHeart linear infinite;
-opacity:.8;
-}
-
-@keyframes floatHeart{
-0%{
-transform:translateY(0) rotate(0deg);
-opacity:0;
-}
-20%{
-opacity:1;
-}
-100%{
-transform:translateY(-110vh) rotate(360deg);
-opacity:0;
-}
-}
-/* Confetti Canvas */
-
-#confetti{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-pointer-events:none;
-z-index:999;
-}
-/* Welcome Popup */
-
-.popup{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(255,192,203,.85);
-display:flex;
-justify-content:center;
-align-items:center;
-z-index:9999;
-}
-
-.popup-box{
-background:white;
-padding:30px;
-border-radius:20px;
-text-align:center;
-max-width:320px;
-box-shadow:0 10px 30px rgba(0,0,0,.2);
-}
-
-.popup-box h2{
-color:#ff4d88;
-margin-bottom:15px;
-}
-
-.popup-box p{
-margin-bottom:20px;
-color:#666;
-}
-/* Glass Effect */
-
-.hero,
-.letter,
-.gift{
-
-background:rgba(255,255,255,0.25);
-
-backdrop-filter:blur(12px);
-
--webkit-backdrop-filter:blur(12px);
-
-border:1px solid rgba(255,255,255,.3);
-
-border-radius:30px;
-
-margin:30px;
-
-padding:40px;
-
-box-shadow:0 8px 32px rgba(255,105,180,.2);
-
-}
-button{
-
-transition:.4s;
-
-}
-
-button:hover{
-
-transform:scale(1.08);
-
-box-shadow:0 0 25px hotpink;
-
-}
-/* Falling Flowers */
-
-.flowers{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-pointer-events:none;
-overflow:hidden;
-z-index:-1;
-}
-
-.flower{
-position:absolute;
-top:-50px;
-font-size:20px;
-animation:fallFlower linear infinite;
-opacity:.8;
-}
-
-@keyframes fallFlower{
-
-0%{
-transform:translateY(-50px) rotate(0deg);
-}
-
-100%{
-transform:translateY(110vh) rotate(360deg);
-}
-
-}
-/* Glowing Title */
-
-.hero h1{
-animation:glow 2s ease-in-out infinite alternate;
-}
-
-@keyframes glow{
-
-from{
-text-shadow:
-0 0 10px #ff69b4,
-0 0 20px #ff69b4;
-}
-
-to{
-text-shadow:
-0 0 20px white,
-0 0 35px hotpink,
-0 0 50px deeppink;
-}
-
-}
-/* ✨ Sparkles */
-
-.sparkle{
-position:fixed;
-pointer-events:none;
-font-size:18px;
-animation:sparkle 1s linear forwards;
-z-index:9999;
-}
-
-@keyframes sparkle{
-
-0%{
-opacity:1;
-transform:scale(1) translateY(0);
-}
-
-100%{
-opacity:0;
-transform:scale(2) translateY(-40px);
-}
-
-}
-/* Letter Animation */
-
-.letter-box{
-
-padding:80px 20px;
-
-text-align:center;
-
-}
-
-.envelope{
-
-font-size:90px;
-
-cursor:pointer;
-
-transition:.4s;
-
-}
-
-.envelope:hover{
-
-transform:scale(1.2) rotate(10deg);
-
-}
-
-.secret-letter{
-
-display:none;
-
-margin:auto;
-
-margin-top:30px;
-
-max-width:700px;
-
-background:white;
-
-padding:30px;
-
-border-radius:25px;
-
-box-shadow:0 10px 30px rgba(0,0,0,.15);
-
-animation:fadeLetter 1s;
-
-}
-
-@keyframes fadeLetter{
-
-from{
-
-opacity:0;
-
-transform:translateY(40px);
-
-}
-
-to{
-
-opacity:1;
-
-transform:translateY(0);
-
-}
-
-}
-#countdown{
-margin-top:15px;
-font-size:22px;
-color:#ff4d88;
-font-weight:bold;
-animation:pulse 1.5s infinite;
-}
-
-@keyframes pulse{
-
-0%{
-transform:scale(1);
-}
-
-50%{
-transform:scale(1.08);
-}
-
-100%{
-transform:scale(1);
-}
-
-}
-/* ✨ Twinkling Stars */
-
-.stars{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-pointer-events:none;
-overflow:hidden;
-z-index:-2;
-}
-
-.star{
-position:absolute;
-color:white;
-font-size:12px;
-animation:twinkle linear infinite;
-opacity:.7;
-}
-
-@keyframes twinkle{
-
-0%{
-opacity:0;
-transform:scale(.5);
-}
-
-50%{
-opacity:1;
-transform:scale(1.3);
-}
-
-100%{
-opacity:0;
-transform:scale(.5);
-}
-
-}
-/* Smooth Scroll */
-
-html{
-scroll-behavior:smooth;
-}
-/* Footer */
-
-.footer{
-text-align:center;
-padding:25px;
-font-size:16px;
-color:white;
-margin-top:50px;
-text-shadow:0 0 10px hotpink;
-}
-/* Ending Section */
-
-.ending{
-margin:70px 20px;
-padding:40px;
-background:rgba(255,255,255,.2);
-backdrop-filter:blur(10px);
-border-radius:25px;
-text-align:center;
-box-shadow:0 8px 20px rgba(255,105,180,.25);
-}
-
-.ending h2{
-color:#ff4d88;
-margin-bottom:20px;
-font-size:32px;
-}
-
-.ending p{
-line-height:1.8;
-font-size:18px;
-color:#444;
+footer {
+    text-align: center;
+    padding: 25px;
+    color: white;
+    background: #ffb6d2;
+    margin-top: 50px;
 }
